@@ -4,6 +4,10 @@ const serverHandle = (req,res) => {
     // 设置响应格式json
     res.setHeader('Content-Type", "application/json')
 
+    // 处理path
+    const url = req.url
+    req.path = url.split('?')[0]
+
     // 处理blog路由
     const blogData = handleBlogRouter(req,res)
     if (blogData) {
